@@ -10,12 +10,16 @@ playlist = Playlist(input('Please enter the url  : '))
 # so basically we cant check if the corresponding type is
 
 # rightly casted until we try to run the 'funcs' of a certain object
+
+forbidden_symb = ['#','%','&','{','}','\\','$','!',"'",
+                  '"',':','@','>','<','*','?','/',' ','+','`','|','=']
+
 chosen_stream = None
 
 
 for index,video in enumerate(playlist.videos):
     temp = video.streams.get_highest_resolution()
-    print(temp)
+    # print(temp)
     # print(temp.__dict__)
     if temp.resolution in ["1080p","2160p", "4320p", "1440p"]:
         print(temp.resolution)
@@ -27,8 +31,12 @@ for index,video in enumerate(playlist.videos):
         chosen_stream = temp
         print('it was the highest res acceptable')
     # pass
-
-    chosen_stream.download('myDownloads\\',filename=f" - [{video.title}].mp4",filename_prefix=f'{playlist.title} - {index}-{playlist.length}')
+    vtitle = video.title[:]
+    for symbol in forbidden_symb:
+        print(symbol,end=' ')
+        vtitle = vtitle.replace(symbol,'_')
+    print('\n '+vtitle)
+    chosen_stream.download('myDownloads\\',filename=f" - [{vtitle}].mp4",filename_prefix=f'{playlist.title} - {index}-{playlist.length}')
 
 
 
