@@ -7,12 +7,12 @@ might add'em when im free
 
 ( also there is no handling of parrallel downloads from my side )
 
-##To get Started : 
+## To get Started : 
 ```
->git clone https://github.com/ACHREF999/utubeDownloader.git
+> git clone https://github.com/ACHREF999/utubeDownloader.git
 ```
 ```
->pip install -r requirements.txt
->python main.py
+> pip install -r requirements.txt
+> python main.py
 ```
 enter your url and it will download
