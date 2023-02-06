@@ -28,7 +28,7 @@ for index,video in enumerate(playlist.videos):
         print('it was the highest res acceptable')
     # pass
 
-    chosen_stream.download('myDownloads\\',filename=f" - [{video.title}]",filename_prefix=f'{playlist.title} - {index}-{playlist.length}')
+    chosen_stream.download('myDownloads\\',filename=f" - [{video.title}].mp4",filename_prefix=f'{playlist.title} - {index}-{playlist.length}')
 
 
 
