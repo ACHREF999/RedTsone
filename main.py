@@ -43,7 +43,6 @@ try:
         print('\n '+vtitle)
         chosen_stream.download('myDownloads\\',filename=f" - [{vtitle}].mp4",filename_prefix=f'{playlist.title} - {index+1}-{playlist.length+1}')
 except:
-
     yt = YouTube(url)
     temp = yt.streams.get_highest_resolution()
     if temp.resolution in ["1080p", "2160p", "4320p", "1440p"]:
@@ -58,7 +57,7 @@ except:
         vtitle = vtitle.replace(symbol, '_')
     print('\n ' + vtitle)
 
-    chosen_stream.download('myDownloads\\',filename=f"")
+    chosen_stream.download('myDownloads\\',filename=f"Unrecognized [{vtitle}]")
 
 finally:
     print('''
