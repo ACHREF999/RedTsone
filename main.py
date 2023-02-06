@@ -57,7 +57,7 @@ except:
         vtitle = vtitle.replace(symbol, '_')
     print('\n ' + vtitle)
 
-    chosen_stream.download('myDownloads\\',filename=f"Unrecognized [{vtitle}]")
+    chosen_stream.download('myDownloads\\',filename=f"Unrecognized [{vtitle}].mp4")
 
 finally:
     print('''
