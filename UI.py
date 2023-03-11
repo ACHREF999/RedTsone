@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\UI\secondStacking.ui'
+# Form implementation generated from reading ui file '.\UI\thirdStacking.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -15,7 +15,7 @@ from PyQt5.Qt import QUrl,QDesktopServices
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(835, 737)
+        MainWindow.resize(1080, 720)
         MainWindow.setStyleSheet("background-color:#030303")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -53,6 +53,7 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         font.setKerning(False)
         self.label_2.setFont(font)
+        self.label_2.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.label_2.setStyleSheet("color:white;\n"
 "")
         self.label_2.setObjectName("label_2")
@@ -60,6 +61,7 @@ class Ui_MainWindow(object):
         self.home_button.setGeometry(QtCore.QRect(0, 100, 200, 75))
         self.home_button.setMinimumSize(QtCore.QSize(200, 0))
         self.home_button.setMaximumSize(QtCore.QSize(250, 16777215))
+        self.home_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.home_button.setStyleSheet("color:white;\n"
 "font-size:20px;\n"
 "background-color:#3d3d3d;\n"
@@ -77,6 +79,7 @@ class Ui_MainWindow(object):
         self.settings_button.setGeometry(QtCore.QRect(0, 175, 200, 75))
         self.settings_button.setMinimumSize(QtCore.QSize(200, 0))
         self.settings_button.setMaximumSize(QtCore.QSize(250, 16777215))
+        self.settings_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.settings_button.setStyleSheet("color:white;\n"
 "font-size:20px;\n"
 "\n"
@@ -95,6 +98,7 @@ class Ui_MainWindow(object):
         self.help_button.setGeometry(QtCore.QRect(0, 250, 200, 75))
         self.help_button.setMinimumSize(QtCore.QSize(200, 0))
         self.help_button.setMaximumSize(QtCore.QSize(250, 16777215))
+        self.help_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.help_button.setStyleSheet("color:white;\n"
 "font-size:20px;\n"
 "\n"
@@ -127,6 +131,7 @@ class Ui_MainWindow(object):
         self.github_button.setGeometry(QtCore.QRect(0, 0, 200, 75))
         self.github_button.setMinimumSize(QtCore.QSize(200, 0))
         self.github_button.setMaximumSize(QtCore.QSize(250, 16777215))
+        self.github_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.github_button.setStyleSheet("color:#c0c0c0;\n"
 "font-size:20px;\n"
 "\n"
@@ -145,6 +150,7 @@ class Ui_MainWindow(object):
         self.linkedin_button.setGeometry(QtCore.QRect(0, 75, 200, 75))
         self.linkedin_button.setMinimumSize(QtCore.QSize(200, 0))
         self.linkedin_button.setMaximumSize(QtCore.QSize(250, 16777215))
+        self.linkedin_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.linkedin_button.setStyleSheet("color:#c0c0c0;\n"
 "font-size:20px;\n"
 "\n"
@@ -364,106 +370,106 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        self.home_button.clicked.connect(lambda : self.handleMenu(0))
-        self.settings_button.clicked.connect(lambda : self.handleMenu(1))
-        self.help_button.clicked.connect(lambda : self.handleMenu(2))
+
+        self.home_button.clicked.connect(lambda: self.handleMenu(0))
+        self.settings_button.clicked.connect(lambda: self.handleMenu(1))
+        self.help_button.clicked.connect(lambda: self.handleMenu(2))
 
         # The Link to My-My
         github_url = QUrl("https://github.com/ACHREF999")
         linkedin_url = QUrl("https://google.com")
 
-        self.github_button.clicked.connect(lambda : QDesktopServices.openUrl(github_url))
+        self.github_button.clicked.connect(lambda: QDesktopServices.openUrl(github_url))
 
         self.linkedin_button.clicked.connect(lambda: QDesktopServices.openUrl(linkedin_url))
 
-    def handleMenu(self,index):
-            self.stackedWidget.setCurrentIndex(index)
-            if  index == 0:
-                    self.settings_button.setStyleSheet("color:white;\n"
-                                                       "font-size:20px;\n"
-                                                       "\n"
-                                                       "border:0px;\n"
-                                                       "margin:0px;\n"
-                                                       "padding:0px;\n"
-                                                       "text-align:left;\n"
-                                                       "padding-left:10px;\n"
-                                                       "")
-                    self.help_button.setStyleSheet("color:white;\n"
-                                                       "font-size:20px;\n"
-                                                       "\n"
-                                                       "border:0px;\n"
-                                                       "margin:0px;\n"
-                                                       "padding:0px;\n"
-                                                       "text-align:left;\n"
-                                                       "padding-left:10px;\n"
-                                                       "")
-                    self.home_button.setStyleSheet("color:white;\n"
-                                                   "font-size:20px;\n"
-                                                   "background-color:#3d3d3d;\n"
-                                                   "border:0px;\n"
-                                                   "margin:0px;\n"
-                                                   "padding:0px;\n"
-                                                   "text-align:left;\n"
-                                                   "padding-left:10px;")
+    def handleMenu(self, index):
+        self.stackedWidget.setCurrentIndex(index)
+        if index == 0:
+            self.settings_button.setStyleSheet("color:white;\n"
+                                               "font-size:20px;\n"
+                                               "\n"
+                                               "border:0px;\n"
+                                               "margin:0px;\n"
+                                               "padding:0px;\n"
+                                               "text-align:left;\n"
+                                               "padding-left:10px;\n"
+                                               "")
+            self.help_button.setStyleSheet("color:white;\n"
+                                           "font-size:20px;\n"
+                                           "\n"
+                                           "border:0px;\n"
+                                           "margin:0px;\n"
+                                           "padding:0px;\n"
+                                           "text-align:left;\n"
+                                           "padding-left:10px;\n"
+                                           "")
+            self.home_button.setStyleSheet("color:white;\n"
+                                           "font-size:20px;\n"
+                                           "background-color:#3d3d3d;\n"
+                                           "border:0px;\n"
+                                           "margin:0px;\n"
+                                           "padding:0px;\n"
+                                           "text-align:left;\n"
+                                           "padding-left:10px;")
 
-                    pass
-            elif index == 1:
-                    self.home_button.setStyleSheet("color:white;\n"
-                                                       "font-size:20px;\n"
-                                                       "\n"
-                                                       "border:0px;\n"
-                                                       "margin:0px;\n"
-                                                       "padding:0px;\n"
-                                                       "text-align:left;\n"
-                                                       "padding-left:10px;\n"
-                                                       "")
-                    self.help_button.setStyleSheet("color:white;\n"
-                                                   "font-size:20px;\n"
-                                                   "\n"
-                                                   "border:0px;\n"
-                                                   "margin:0px;\n"
-                                                   "padding:0px;\n"
-                                                   "text-align:left;\n"
-                                                   "padding-left:10px;\n"
-                                                   "")
-                    self.settings_button.setStyleSheet("color:white;\n"
-                                                   "font-size:20px;\n"
-                                                   "background-color:#3d3d3d;\n"
-                                                   "border:0px;\n"
-                                                   "margin:0px;\n"
-                                                   "padding:0px;\n"
-                                                   "text-align:left;\n"
-                                                   "padding-left:10px;")
-                    pass
-            elif index==2 :
-                    self.settings_button.setStyleSheet("color:white;\n"
-                                                       "font-size:20px;\n"
-                                                       "\n"
-                                                       "border:0px;\n"
-                                                       "margin:0px;\n"
-                                                       "padding:0px;\n"
-                                                       "text-align:left;\n"
-                                                       "padding-left:10px;\n"
-                                                       "")
-                    self.home_button.setStyleSheet("color:white;\n"
-                                                   "font-size:20px;\n"
-                                                   "\n"
-                                                   "border:0px;\n"
-                                                   "margin:0px;\n"
-                                                   "padding:0px;\n"
-                                                   "text-align:left;\n"
-                                                   "padding-left:10px;\n"
-                                                   "")
-                    self.help_button.setStyleSheet("color:white;\n"
-                                                   "font-size:20px;\n"
-                                                   "background-color:#3d3d3d;\n"
-                                                   "border:0px;\n"
-                                                   "margin:0px;\n"
-                                                   "padding:0px;\n"
-                                                   "text-align:left;\n"
-                                                   "padding-left:10px;")
-                    pass
-
+            pass
+        elif index == 1:
+            self.home_button.setStyleSheet("color:white;\n"
+                                           "font-size:20px;\n"
+                                           "\n"
+                                           "border:0px;\n"
+                                           "margin:0px;\n"
+                                           "padding:0px;\n"
+                                           "text-align:left;\n"
+                                           "padding-left:10px;\n"
+                                           "")
+            self.help_button.setStyleSheet("color:white;\n"
+                                           "font-size:20px;\n"
+                                           "\n"
+                                           "border:0px;\n"
+                                           "margin:0px;\n"
+                                           "padding:0px;\n"
+                                           "text-align:left;\n"
+                                           "padding-left:10px;\n"
+                                           "")
+            self.settings_button.setStyleSheet("color:white;\n"
+                                               "font-size:20px;\n"
+                                               "background-color:#3d3d3d;\n"
+                                               "border:0px;\n"
+                                               "margin:0px;\n"
+                                               "padding:0px;\n"
+                                               "text-align:left;\n"
+                                               "padding-left:10px;")
+            pass
+        elif index == 2:
+            self.settings_button.setStyleSheet("color:white;\n"
+                                               "font-size:20px;\n"
+                                               "\n"
+                                               "border:0px;\n"
+                                               "margin:0px;\n"
+                                               "padding:0px;\n"
+                                               "text-align:left;\n"
+                                               "padding-left:10px;\n"
+                                               "")
+            self.home_button.setStyleSheet("color:white;\n"
+                                           "font-size:20px;\n"
+                                           "\n"
+                                           "border:0px;\n"
+                                           "margin:0px;\n"
+                                           "padding:0px;\n"
+                                           "text-align:left;\n"
+                                           "padding-left:10px;\n"
+                                           "")
+            self.help_button.setStyleSheet("color:white;\n"
+                                           "font-size:20px;\n"
+                                           "background-color:#3d3d3d;\n"
+                                           "border:0px;\n"
+                                           "margin:0px;\n"
+                                           "padding:0px;\n"
+                                           "text-align:left;\n"
+                                           "padding-left:10px;")
+            pass
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))

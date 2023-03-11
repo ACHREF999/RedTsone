@@ -1,0 +1,99 @@
+  self.home_button.clicked.connect(lambda : self.handleMenu(0))
+        self.settings_button.clicked.connect(lambda : self.handleMenu(1))
+        self.help_button.clicked.connect(lambda : self.handleMenu(2))
+
+        # The Link to My-My
+        github_url = QUrl("https://github.com/ACHREF999")
+        linkedin_url = QUrl("https://google.com")
+
+        self.github_button.clicked.connect(lambda : QDesktopServices.openUrl(github_url))
+
+        self.linkedin_button.clicked.connect(lambda: QDesktopServices.openUrl(linkedin_url))
+
+    def handleMenu(self,index):
+            self.stackedWidget.setCurrentIndex(index)
+            if  index == 0:
+                    self.settings_button.setStyleSheet("color:white;\n"
+                                                       "font-size:20px;\n"
+                                                       "\n"
+                                                       "border:0px;\n"
+                                                       "margin:0px;\n"
+                                                       "padding:0px;\n"
+                                                       "text-align:left;\n"
+                                                       "padding-left:10px;\n"
+                                                       "")
+                    self.help_button.setStyleSheet("color:white;\n"
+                                                       "font-size:20px;\n"
+                                                       "\n"
+                                                       "border:0px;\n"
+                                                       "margin:0px;\n"
+                                                       "padding:0px;\n"
+                                                       "text-align:left;\n"
+                                                       "padding-left:10px;\n"
+                                                       "")
+                    self.home_button.setStyleSheet("color:white;\n"
+                                                   "font-size:20px;\n"
+                                                   "background-color:#3d3d3d;\n"
+                                                   "border:0px;\n"
+                                                   "margin:0px;\n"
+                                                   "padding:0px;\n"
+                                                   "text-align:left;\n"
+                                                   "padding-left:10px;")
+
+                    pass
+            elif index == 1:
+                    self.home_button.setStyleSheet("color:white;\n"
+                                                       "font-size:20px;\n"
+                                                       "\n"
+                                                       "border:0px;\n"
+                                                       "margin:0px;\n"
+                                                       "padding:0px;\n"
+                                                       "text-align:left;\n"
+                                                       "padding-left:10px;\n"
+                                                       "")
+                    self.help_button.setStyleSheet("color:white;\n"
+                                                   "font-size:20px;\n"
+                                                   "\n"
+                                                   "border:0px;\n"
+                                                   "margin:0px;\n"
+                                                   "padding:0px;\n"
+                                                   "text-align:left;\n"
+                                                   "padding-left:10px;\n"
+                                                   "")
+                    self.settings_button.setStyleSheet("color:white;\n"
+                                                   "font-size:20px;\n"
+                                                   "background-color:#3d3d3d;\n"
+                                                   "border:0px;\n"
+                                                   "margin:0px;\n"
+                                                   "padding:0px;\n"
+                                                   "text-align:left;\n"
+                                                   "padding-left:10px;")
+                    pass
+            elif index==2 :
+                    self.settings_button.setStyleSheet("color:white;\n"
+                                                       "font-size:20px;\n"
+                                                       "\n"
+                                                       "border:0px;\n"
+                                                       "margin:0px;\n"
+                                                       "padding:0px;\n"
+                                                       "text-align:left;\n"
+                                                       "padding-left:10px;\n"
+                                                       "")
+                    self.home_button.setStyleSheet("color:white;\n"
+                                                   "font-size:20px;\n"
+                                                   "\n"
+                                                   "border:0px;\n"
+                                                   "margin:0px;\n"
+                                                   "padding:0px;\n"
+                                                   "text-align:left;\n"
+                                                   "padding-left:10px;\n"
+                                                   "")
+                    self.help_button.setStyleSheet("color:white;\n"
+                                                   "font-size:20px;\n"
+                                                   "background-color:#3d3d3d;\n"
+                                                   "border:0px;\n"
+                                                   "margin:0px;\n"
+                                                   "padding:0px;\n"
+                                                   "text-align:left;\n"
+                                                   "padding-left:10px;")
+                    pass
