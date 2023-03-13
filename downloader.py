@@ -6,7 +6,6 @@ forbidden_symb = ['#','%','&','{','}','\\','$','!',"'",
 
 
 
-# url = input('Please enter the url  : ')
 
 
 # TODO get text on `Download` Click [ ]
@@ -16,6 +15,8 @@ forbidden_symb = ['#','%','&','{','}','\\','$','!',"'",
 
 if __name__ == '__main__':
     url = ""
+    url = input('Please enter the url  : ')
+
     try:
         # Playlist object is a container for many youtube objects
         playlist = Playlist(url)

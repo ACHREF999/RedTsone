@@ -9,7 +9,7 @@ from UI_Demo import Ui_RedTsone
 # class UI(QMainWindow):
 #     def __init__(self):
 #         super(UI,self).__init__()
-#         uic.loadUi('./UI/FirstStacking.ui',self)
+#         uic.loadUi('./UI/FirstStacking1.ui',self)
 #         self.show()
 class Window(Ui_RedTsone,QMainWindow):
     def __init__(self):
