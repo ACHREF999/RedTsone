@@ -371,6 +371,14 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+
+        #####-#####-#####-#####
+        #                     #
+        ## The Wiring        ##
+        #                     #
+        #####-#####-#####-#####
+
+
         self.home_button.clicked.connect(lambda: self.handleMenu(0))
         self.settings_button.clicked.connect(lambda: self.handleMenu(1))
         self.help_button.clicked.connect(lambda: self.handleMenu(2))
@@ -470,6 +478,11 @@ class Ui_MainWindow(object):
                                            "text-align:left;\n"
                                            "padding-left:10px;")
             pass
+
+
+
+
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
