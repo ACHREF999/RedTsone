@@ -31,5 +31,5 @@ enter your url and it will download
 
 UI looking minimalistic I prioritized dark mode idk if i will add light mode cuz it sounds useless at the moment
 
-[RedTsone](./UI/SS_UI.png)
+![RedTsone](./UI/SS_UI.png)
 
