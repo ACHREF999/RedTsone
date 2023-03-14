@@ -8,10 +8,71 @@ forbidden_symb = ['#','%','&','{','}','\\','$','!',"'",
 
 
 
-# TODO get text on `Download` Click [ ]
-# TODO paste text on `paste` Click [ ]
-# TODO check if valid url [ ]
+# TODO get text on `Download` Click [X]
+# TODO paste text on `paste` Click [X]
+# TODO check if valid url [X]
+# note that the url validation is not even good i need to rework it
+# but now it does half the trick
+
 # TODO create new thread where you download the Stream[s] [ ]
+
+# so after i click download and validate the url i pass it to this function which handles
+# downloading streams at my prefered resolution
+# i would love to have a function that chooses the streams with the correct resolution
+# and in here i just trigger the ` download ` API
+
+def download_playlist(url,path):
+    p = Playlist(url)
+    print(f'downloading {p.title}')
+    print(f'playlist object : {p.videos}')
+    # print(f'streams of a video : {p.videos[0].streams.filter(file_extension="mp4")}')
+    print('start')
+    print(p.videos[0].streams)
+    print('end')
+    # print('some shit happened')
+    print('asdsadsa')
+
+def download_video(url,path):
+    yt = YouTube(url)
+    print(f'streams of the video are : {yt.streams}')
+    #filter through res
+    stream = None
+    if yt.streams.get_highest_resolution().resolution in ['144p','240p','360p','480p','720p']:
+
+        stream = yt.streams.get_highest_resolution()
+
+
+    else :
+        stream = yt.streams.filter(res='720p')
+
+
+    title = yt.title
+
+    for symb in forbidden_symb:
+        title = title.replace(symb, "_")
+
+    print(f'downloading {title} with a resolution of {stream.resolution}')
+
+    stream.download(path, title)
+
+    print('finished Downloading')
+
+
+def download(url,path):
+
+
+    if 'list' in url.lower():
+        download_playlist(url,path)
+
+
+    else :
+        download_video(url,path)
+
+
+
+
+
+
 
 if __name__ == '__main__':
     url = ""
