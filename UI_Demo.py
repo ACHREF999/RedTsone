@@ -838,7 +838,7 @@ class Ui_RedTsone(object):
         self.github_button.clicked.connect(lambda: QDesktopServices.openUrl(github_url))
 
         self.linkedin_button.clicked.connect(lambda: QDesktopServices.openUrl(linkedin_url))
-        self.download_button.clicked.connect(lambda : self.init_download())
+        self.download_button.clicked.connect(lambda : Thread(target=self.init_download).start() )
         self.paste_button.clicked.connect(lambda: self.handle_paste())
 
 # validate url checkpoint [ this is used to get down quickly using ` ctrl + f `
@@ -864,11 +864,15 @@ class Ui_RedTsone(object):
 
 
     def init_download(self):
+            # here i create the new thread
+            # and then i try to download the video
+            # after that i add the item to the list in the GUI
 
-        temp = self.validate_url(self.url_input.text())
+        input = self.url_input.text()
+        temp = self.validate_url(input)
 
         if(temp):
-                self.url = self.url_input.text()
+                self.url = input
                 print(f'- Saving {self.url} at : {self.path}')
                 print(f'path directory {os.path.isdir(self.path)} exists')
                 self.url_input.setStyleSheet("background-color:white;\n"
@@ -878,10 +882,17 @@ class Ui_RedTsone(object):
                                              "font-size:14px;\n"
                                              "border:3px solid #11bf33")
 
-                thread = Thread(target=download,args=(self.url,self.path))
+                # thread = Thread(target=download,args=(self.url,self.path))
+                #
+                # # download(self.url,self.path)
+                # thread.start()
 
-                # download(self.url,self.path)
-                thread.start()
+                # over here i am in new thread so i am not blocking the main program
+                # meaning i can download normally
+
+
+                download(self.url,self.path)
+
 
         else:
                 self.url_input.setStyleSheet("background-color:white;\n"
@@ -889,7 +900,9 @@ class Ui_RedTsone(object):
                                      "color:#0c0c0c;\n"
                                      "padding:10px;\n"
                                      "font-size:14px;\n"
-                                     "border:4px solid #bf3311;")
+                                     "border:4px solid #cf4422;")
+
+
     def handleMenu(self, index):
             self.stackedWidget.setCurrentIndex(index)
             if index == 0:

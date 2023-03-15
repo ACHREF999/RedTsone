@@ -1,6 +1,8 @@
 from pytube import *
 
+
 chosen_stream = None
+
 forbidden_symb = ['#','%','&','{','}','\\','$','!',"'",
                       '"',':','@','>','<','*','?','/',' ','+','`','|','=']
 
@@ -14,7 +16,15 @@ forbidden_symb = ['#','%','&','{','}','\\','$','!',"'",
 # note that the url validation is not even good i need to rework it
 # but now it does half the trick
 
-# TODO create new thread where you download the Stream[s] [ ]
+# TODO create new thread where you download the Stream[s] [X]
+
+# So now i want to implement the list view and also make a wrapper arround the download function
+# what it means is that init_download will start the thread of adding an item to the list of downloads and track the progress of the download
+# init download :
+#   create new Thread
+#   add new item to the list
+#   start the download
+
 
 # so after i click download and validate the url i pass it to this function which handles
 # downloading streams at my prefered resolution
@@ -22,34 +32,75 @@ forbidden_symb = ['#','%','&','{','}','\\','$','!',"'",
 # and in here i just trigger the ` download ` API
 
 def download_playlist(url,path):
-    p = Playlist(url)
-    print(f'downloading {p.title}')
-    print(f'playlist object : {p.videos}')
-    # print(f'streams of a video : {p.videos[0].streams.filter(file_extension="mp4")}')
-    print('start')
-    print(p.videos[0].streams)
-    print('end')
-    # print('some shit happened')
-    print('asdsadsa')
+    # so here in the playlist we are making a new folder for the playlist
+    # and we are downloading each video in that folder
+    #
 
-def download_video(url,path):
-    yt = YouTube(url)
-    print(f'streams of the video are : {yt.streams}')
-    #filter through res
+    p = Playlist(url)
+
+    if path and path[-1] == '/':
+
+        path += p.title+'/'
+
+
+    else :
+
+        path += '/'+p.title+'/'
+
+
+    for video in p.video_urls:
+
+        download_video(video,path)
+
+
+def get_stream(yt):
     stream = None
-    if yt.streams.get_highest_resolution().resolution in ['144p','240p','360p','480p','720p']:
+
+    # i dont need to put the '720p' here but we can get the stream directly in here
+
+    if yt.streams.get_highest_resolution().resolution in ['144p', '240p', '360p', '480p','720p']:
 
         stream = yt.streams.get_highest_resolution()
 
 
-    else :
+    else:
+
         stream = yt.streams.filter(res='720p')
 
 
-    title = yt.title
+
+    return stream
+
+def clean_title(title):
+
+    new = title+' '
+
+    new = new[:-1]
+
+    # Not consumming the string to avoid unexpected behaviour
+
 
     for symb in forbidden_symb:
-        title = title.replace(symb, "_")
+
+        new = title.replace(symb, "_")
+
+    return new
+
+
+def download_video(url,path):
+    yt = YouTube(url)
+
+
+    # print(f'streams of the video are : {yt.streams}')
+    #filter through res
+
+    stream = get_stream(yt)
+
+    title = yt.title
+
+    #clean the name
+
+    title = clean_title(title)
 
     print(f'downloading {title} with a resolution of {stream.resolution}')
 
